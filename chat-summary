@@ -1,0 +1,49 @@
+On the 5th of December, Jason Dusek and Sean Leather discussed multi-party,
+encrypted chat rooms with logs.
+
+  Jason Dusek:
+    For the service to work, users need to distribute their public keys to one
+    another.
+  Sean Leather:
+    Right.
+  Jason Dusek:
+    They generate session keys every few minutes and put them in key slots for
+    everyone.
+  Jason Dusek:
+    If you want to retroactively add someone to the chat room -- allowing them
+    to see the logs -- you can just go through and add key slots to the old
+    data.
+    Probably, every ~5-10 minutes a new session key is generated.
+  Jason Dusek:
+    So you can be reasonably granular about it.
+    Access to the logs would not need to be gated by much.
+    In fact, we could publish all the chatroom logs to S3 or Usenet.
+  Jason Dusek:
+    You can download whatever you want; without the crypto you can't see
+    anything.
+    However, if we allow indiscriminate publication to the logs for a
+    chatroom, certain chatrooms could be DOS'd.
+  Jason Dusek:
+    Probably, each chat room gets a key pair and the way you share a chatroom
+    with someone is giving them the keys.
+    Public or private, I'm not sure which.
+    Maybe only the server gets the private key, actually.
+  Jason Dusek:
+    Now you have all these keys to fiddle with.
+    Key pairs for every user and every chat room.
+    For this reason, you need a plugin or proxy server to manage all this
+    stuff.
+  Jason Dusek:
+    How should users share a chatroom with one another? How should the
+    chatroom have a name associated to it?
+    I think (but I'm not sure) that all this stuff should be handled in the
+    client plugin or local proxy.
+    They distribute the info to one another in a peer to peer fashion.
+  Sean Leather:
+    In general, you want all communication to the server to be encrypted,
+    right?
+  Jason Dusek:
+    It must be encrypted.
+    Well, it could even be plaintext Jabber; but all the payloads would be
+    encrypted.
+
